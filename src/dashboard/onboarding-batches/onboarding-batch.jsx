@@ -3,6 +3,7 @@ import statsIcon from '../../assets/stats-icon.svg';
 import HiresTable from '../hires-table';
 import OnboardingBatchForm from './onboarding-batch-form';
 import OnboardedBatches from './onboarded-batches';
+import OnboardingTable from './onboarding-table';
 
 const OnboardingBatch = () => {
   const stats = [
@@ -36,7 +37,7 @@ const OnboardingBatch = () => {
       className="custom-bg-green text-white text-base font-semibold w-56 py-2 rounded-lg">
         Create Onboarding Batch</button></div>
       </div>
-      <HiresTable />
+      <OnboardingTable />
     </div>
     :
     <OnboardingBatchForm showForm={showForm} setShowForm={setShowForm} />
