@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiPlusCircle } from "react-icons/fi";
+import AddTeamMember from './add-team-member';
 
 const JobRoleForm = () => {
     const [step, setStep] = React.useState(1);
@@ -38,6 +39,7 @@ const JobRoleForm = () => {
     };
 
     return (
+        <>
         <div className="container mx-auto p-4">
 
             <form onSubmit={handleSubmit} className="mt-4 step-form rounded-xl w-5/12 mx-auto bg-white px-4 py-10">
@@ -223,6 +225,8 @@ const JobRoleForm = () => {
                 </div>
             </form>
         </div>
+        {/* <AddTeamMember /> */}
+        </>
     );
 };
 
