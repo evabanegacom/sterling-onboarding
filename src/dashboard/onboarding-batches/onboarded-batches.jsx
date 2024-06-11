@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import moveStaff from '../../assets/move-staff.svg';
 import { CiSearch } from "react-icons/ci";
 import moveStaffToBatch from '../../assets/move-staff-to-batch.svg';
+import './onboarding-batches.css';
 
 const OnboardedBatches = () => {
     const [showCheckboxes, setShowCheckboxes] = useState(false);
@@ -72,8 +73,12 @@ const OnboardedBatches = () => {
         }
     };
 
+    const cancelSelection = () => {
+        setSelectedEmployees([])
+    }
+
     return (
-        <div>
+        <div className='onboarded-batches'>
             <div className='flex bg-white py-3 items-center px-3'>
                 <div className='neutral-black text-xl font-bold'>Tech AcDEmy batch</div>
                 <button className='ml-auto' onClick={toggleCheckboxes}><img src={moveStaff} alt='move-staff' /></button>
@@ -86,14 +91,15 @@ const OnboardedBatches = () => {
                     />
                 </div>
             </div>
+            {selectedEmployees?.length > 0 ?
             <div className='flex items-center'>
                 <div className='neutral-black font-black text-base'>
-                    
-                    {selectedEmployees?.length} staff selected
+                <div className="selection-indicator" />
+                {selectedEmployees?.length} staff selected
                 </div>
-                <button className='ml-auto mr-10 text-red-500 font-bold'>Cancel</button>
+                <button onClick={cancelSelection} className='ml-auto mr-10 text-red-500 font-bold'>Cancel</button>
                 <button className='custom-bg-green text-white flex items-center font-bold gap-2 w-40 rounded-lg justify-center p-2'><img src={moveStaffToBatch} alt='move staff' />Move staff</button>
-            </div>
+            </div> : null}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-green-50 mt-5'>
                 {employees.map((employee) => (
                     <div key={employee.id} className='relative flex items-center flex-col gap-3 py-8 text-center shadow-md bg-white rounded-lg'>

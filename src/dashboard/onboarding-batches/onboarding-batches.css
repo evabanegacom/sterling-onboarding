@@ -1,0 +1,12 @@
+.selection-indicator {
+    width: 15px;
+    height: 20px;
+    background-color: '#4B9560';
+    transform: translateY(-50%);
+}
+
+.onboarded-batches input[type='checkbox']:checked {
+    background: #4B9560;
+    border: 1px solid red;
+}
+
