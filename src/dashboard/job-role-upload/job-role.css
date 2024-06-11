@@ -1,0 +1,34 @@
+.job-details-header {
+  background: url('../../assets/job-details-bg.svg') no-repeat center center;
+  background-color: #B9DCD2;
+}
+
+.step-form {
+  border: 1px solid #B9DCD2;
+}
+
+.step-form input, .step-form textarea{
+  border: 1px solid #C4C4C4;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.step-form label {
+  color: #495057;
+  font-size: 14px;
+}
+
+.btn-active {
+  border-bottom: 2px solid #4B9560;
+  color: #4B9560;
+  font-weight: 600;
+}
+
+.btn-inactive {
+  border-bottom: 2px solid #ADB5BD;
+  color: #ADB5BD;
+}
+
+.btn {
+  padding: 0 10px;
+}

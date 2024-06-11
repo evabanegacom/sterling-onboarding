@@ -1,0 +1,15 @@
+.login-page {
+  background: url('../assets/login-bg.svg') no-repeat center center fixed,
+    url('../assets/login-dark-bg.svg') no-repeat center center;
+    background-size: cover;
+    
+}
+
+.login-page input {
+    border: 1px solid #DEE2E6;
+    outline: none;
+}
+
+.login-page form {
+    border: 1px solid #E1E1E1
+}

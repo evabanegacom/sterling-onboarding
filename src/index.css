@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-green {
+  color: #4B9560;
+}
+
+.custom-bg-green {
+  background-color: #4B9560;
+}
+
+.neutral-black {
+    color: #495057;
+}
+
+.neutral-grey {
+  color: #ADB5BD;
+}
+
+.muted-grey {
+  color: #666666;
+}
+
+.dark-grey {
+  color: #64748B;
+}
+
+.dark-color {
+  color: #344054;
+}
+
+.neutral-black-2 {
+  color: #343A40;
+}
+
+.neutral-grey-2 {
+  color: #848484;
+
+}
