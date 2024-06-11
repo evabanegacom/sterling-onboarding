@@ -4,7 +4,6 @@ import newHires from '../assets/new-hires.svg';
 import onBoardingDoc from '../assets/onboarding-doc.svg';
 import jobRoleUpload from '../assets/job-role-upload.svg';
 import surveyReport from '../assets/survey-report.svg';
-import HiresTable from './hires-table';
 import { useNavigate } from 'react-router-dom';
 import GrantAccess from './grant-access/grant-access';
 

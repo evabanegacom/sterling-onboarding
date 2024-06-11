@@ -192,8 +192,8 @@ const JobRoleForm = () => {
                 )}
 
                 {step === 3 && (
-                    <div className="step step-3">
-                        <div>
+                    <div className="step step-1 flex flex-col gap-3 w-full">
+                        <div className='flex flex-col'>
                             <label htmlFor="jobLinks">Job Links</label>
                             <input
                                 type="text"
@@ -203,6 +203,7 @@ const JobRoleForm = () => {
                                 onChange={handleChange}
                             />
                         </div>
+                        <div><button className='custom-green float-right flex items-center gap-2 text-sm font-bold'><FiPlusCircle className='font-bold'/><span>Add Link</span></button></div>
                     </div>
                 )}
 
@@ -218,7 +219,7 @@ const JobRoleForm = () => {
                         </button>
                     ) : (
                         <button type="submit" 
-                        className="rounded-lg w-64 custom-bg-green py-1 text-white font-semibold">
+                        className="rounded-lg w-64 custom-bg-green py-2 mx-auto text-white font-semibold">
                             Submit
                         </button>
                     )}

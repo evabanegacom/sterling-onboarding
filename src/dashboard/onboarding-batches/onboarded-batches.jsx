@@ -3,6 +3,7 @@ import moveStaff from '../../assets/move-staff.svg';
 import { CiSearch } from "react-icons/ci";
 import moveStaffToBatch from '../../assets/move-staff-to-batch.svg';
 import './onboarding-batches.css';
+import { Modal } from "antd";
 
 const OnboardedBatches = () => {
     const [showCheckboxes, setShowCheckboxes] = useState(false);

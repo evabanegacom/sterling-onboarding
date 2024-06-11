@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import statsIcon from '../../assets/stats-icon.svg';
 import newGrants from '../../assets/new-grant-access.svg';
-import HiresTable from '../hires-table';
+// import HiresTable from '../hires-table';
 import SendAdCredentials from './send-ad-credentials';
+import AccessGrantTable from './access-grant-table';
 
 const GrantAccess = ({ showAccess, setShowAccess }) => {
     const [ showForm, setShowForm ] = useState(false);
@@ -47,7 +48,7 @@ const GrantAccess = ({ showAccess, setShowAccess }) => {
         Send AD Credentials</button></div>
       
         </div>
-      <HiresTable />
+      <AccessGrantTable />
     </div>
    <SendAdCredentials showForm={showForm} setShowForm={setShowForm} />
     </>
