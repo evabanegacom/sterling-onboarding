@@ -1,7 +1,6 @@
 import React from 'react'
 
-const OtherTctivities = ({ isOpen, setIsOpen}) => {
-    if(!isOpen) return null
+const OtherTctivities = () => {
   return (
     <div>OtherTctivities</div>
   )

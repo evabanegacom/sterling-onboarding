@@ -1,7 +1,6 @@
 import React from 'react'
 
-const TeamSchedule = ({ isOpen, setIsOpen}) => {
-    if(!isOpen) return null
+const TeamSchedule = () => {
   return (
     <div>TeamSchedule</div>
   )

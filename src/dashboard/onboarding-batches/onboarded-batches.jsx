@@ -2,13 +2,31 @@ import React, { useState } from 'react';
 import moveStaff from '../../assets/move-staff.svg';
 import { CiSearch } from "react-icons/ci";
 import moveStaffToBatch from '../../assets/move-staff-to-batch.svg';
+import { FiUploadCloud, FiX, FiSearch } from 'react-icons/fi';
+
 import './onboarding-batches.css';
+import Select, { components } from 'react-select';
 import { Modal } from "antd";
 
 const OnboardedBatches = () => {
     const [showCheckboxes, setShowCheckboxes] = useState(false);
+    
+    const batches = Array.from({ length: 20 }, (_, id) => ({
+        id,
+        firstName: `FirstName${id}`,
+        lastName: `LastName${id}`,
+        email: `email${id}@company.com`,
+        department: `Department${Math.floor(Math.random() * 5) + 1}`,
+    }));
 
-    const [selectedEmployees, setSelectedEmployees] = useState([]);
+    const batchOptions = batches.map(employee => ({
+        value: employee.id,
+        label: `${employee.firstName} ${employee.lastName} - ${employee.email} - ${employee.department}`,
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+    }));
+
+    const [selectedBatches, setSelectedBatches] = useState([]);
 
     const employees = [
         {
@@ -61,6 +79,37 @@ const OnboardedBatches = () => {
             department: 'Engineering',
         },
     ]
+
+    const [selectedEmployees, setSelectedEmployees] = useState([]);
+
+    const CustomMultiValue = (props) => {
+        return (
+            <components.MultiValue {...props}>
+                <components.MultiValueLabel {...props}>
+                    {props.data.firstName} {props.data.lastName}
+                </components.MultiValueLabel>
+            </components.MultiValue>
+        );
+    };
+
+    const CustomSingleValue = (props) => {
+        return (
+            <components.SingleValue {...props}>
+                {props.data.firstName} {props.data.lastName}
+            </components.SingleValue>
+        );
+    };
+
+    const CustomControl = (props) => (
+        <components.Control {...props}>
+            <FiSearch className="ml-2 text-gray-500" />
+            {props.children}
+        </components.Control>
+    );
+
+    const handleBatchChange = (selectedOptions) => {
+        setSelectedBatches(selectedOptions);
+    };
 
     const toggleCheckboxes = () => {
         setShowCheckboxes(!showCheckboxes);
@@ -121,6 +170,21 @@ const OnboardedBatches = () => {
                     </div>
                 ))}
             </div>
+            <form className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-2/5 mx-auto'>
+                    <h3 className='dark-color font-bold text-2xl'>Single AD Credentials</h3>
+                   
+                    <div className='flex flex-col w-full'>
+                        <label>Employees</label>
+                        <Select
+                            isMulti
+                            options={batchOptions}
+                            value={selectedBatches}
+                            onChange={handleBatchChange}
+                            components={{ MultiValue: CustomMultiValue, SingleValue: CustomSingleValue, Control: CustomControl }}
+                        />
+                    </div>
+                    <button type='submit' className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
+                </form>
         </div>
     );
 };

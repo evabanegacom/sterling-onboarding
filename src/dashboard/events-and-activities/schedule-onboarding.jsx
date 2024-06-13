@@ -1,7 +1,6 @@
 import React from 'react'
 
-const ScheduleOnboarding = ({ isOpen, setIsOpen}) => {
-    if(!isOpen) return null
+const ScheduleOnboarding = () => {
   return (
     <div>ScheduleOnboarding</div>
   )
