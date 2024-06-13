@@ -5,7 +5,7 @@ import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import emptyData from '../assets/empty-data.svg';
 // import TableActions from './table-actions';
 
-const HiresTable = ({ setShowForm, setSelectedUser }) => {
+const HiresTable = ({ setShowForm, setSelectedUser, setToggleViews }) => {
 
   const [isOpen, setIsOpen] = useState(false);
    const tableHeader = ['S/N', 'Employee Name', 'Grade', 'HMO Plan', 'HMO Plan Type', 'Status', ""]
@@ -78,7 +78,7 @@ const HiresTable = ({ setShowForm, setSelectedUser }) => {
     ]
     const toggleForm = (value) => {
       setSelectedUser(value);
-      setShowForm(true);
+      setToggleViews('single upload form');
     }
   // const tableData = []
   return (

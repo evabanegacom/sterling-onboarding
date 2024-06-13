@@ -16,6 +16,7 @@ const OnboardingBatch = () => {
   ]
 
   const [ showForm, setShowForm ] = useState(false);
+  const [ showOnboardingBatch, setShowOnboardingBatch ] = useState(false);
 
   return (
     <>
@@ -35,9 +36,9 @@ const OnboardingBatch = () => {
 
           <div><button onClick={() => setShowForm(true)}
       className="custom-bg-green text-white text-base font-semibold w-56 py-2 rounded-lg">
-        Create Onboarding Batch</button></div>
+        {showOnboardingBatch? 'Add New Staff' : 'Create Onboarding Batch'}</button></div>
       </div>
-      <OnboardingTable />
+      <OnboardingTable showOnboardingBatch={showOnboardingBatch} setShowOnboardingBatch={setShowOnboardingBatch}/>
     </div>
     :
     <OnboardingBatchForm showForm={showForm} setShowForm={setShowForm} />

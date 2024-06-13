@@ -1,8 +1,9 @@
 import React from 'react';
 import { FiPlusCircle } from "react-icons/fi";
 import AddTeamMember from './add-team-member';
+import back from '../../assets/back-icon.svg'
 
-const JobRoleForm = () => {
+const JobRoleForm = ({ setToggleViews}) => {
     const [step, setStep] = React.useState(1);
     const [jobDetails, setJobDetails] = React.useState({
         jobTitle: '',
@@ -41,7 +42,10 @@ const JobRoleForm = () => {
     return (
         <>
         <div className="container mx-auto p-4">
-
+        <div className='flex gap-2 items-center mt-3'>
+        <button onClick={() => setToggleViews('main view')}><img src={back} alt='goback' /></button>
+        <span className='text-2xl font-semibold neutral-black'>Job Role/Upload</span>
+      </div>
             <form onSubmit={handleSubmit} className="mt-4 step-form rounded-xl w-5/12 mx-auto bg-white px-4 py-10">
                 <div className="flex items-center justify-center gap-5">
                     <button

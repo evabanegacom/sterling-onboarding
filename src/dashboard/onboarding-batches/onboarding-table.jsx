@@ -6,11 +6,10 @@ import emptyData from '../../assets/empty-data.svg';
 import OnboardedBatches from './onboarded-batches';
 // import TableActions from './table-actions';
 
-const OnboardingTable = ({ setShowForm, setSelectedUser }) => {
+const OnboardingTable = ({ setShowForm, setSelectedUser, showOnboardingBatch, setShowOnboardingBatch }) => {
 
   const [isOpen, setIsOpen] = useState(false);
    const tableHeader = ['S/N', 'Employee Name', 'Grade', 'HMO Plan', 'HMO Plan Type', 'Status', ""]
-   const [ showOnboardingBatch, setShowOnboardingBatch ] = useState(false);
 
    const tableData = [
       {

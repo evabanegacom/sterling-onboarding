@@ -170,18 +170,42 @@ const OnboardedBatches = () => {
                     </div>
                 ))}
             </div>
-            <form className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-2/5 mx-auto'>
-                    <h3 className='dark-color font-bold text-2xl'>Single AD Credentials</h3>
+            <form className='stats bg-white gap-2 mt-5 upload-form  py-8 rounded-xl px-3 flex flex-col items-center border w-2/4 mx-auto'>
+                    <h3 className='dark-color font-bold text-2xl'>Select Destination Batch</h3>
                    
                     <div className='flex flex-col w-full'>
                         <label>Employees</label>
-                        <Select
+                        {/* <Select
                             isMulti
                             options={batchOptions}
                             value={selectedBatches}
                             onChange={handleBatchChange}
                             components={{ MultiValue: CustomMultiValue, SingleValue: CustomSingleValue, Control: CustomControl }}
-                        />
+                        /> */}
+                         <Select
+                        components={{
+                            MultiValue: CustomMultiValue,
+                            SingleValue: CustomSingleValue,
+                            Control: CustomControl,
+                        }}
+                        isMulti
+                            options={batchOptions}
+                            value={selectedBatches}
+                            onChange={handleBatchChange}
+                        classNamePrefix="custom-select"
+                        styles={{
+                            multiValue: (base) => ({
+                                ...base,
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                            }),
+                            valueContainer: (base) => ({
+                                ...base,
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                            }),
+                        }}
+                    />
                     </div>
                     <button type='submit' className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
                 </form>

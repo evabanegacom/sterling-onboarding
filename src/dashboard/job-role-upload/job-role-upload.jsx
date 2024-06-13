@@ -2,9 +2,11 @@ import { useState } from 'react'
 import statsIcon from '../../assets/stats-icon.svg';
 import HiresTable from '../hires-table';
 import JobRoleDetails from './job-role-details';
+import JobRoleBulkUpload from './job-role-bulk-upload';
 
 const JobRoleUpload = () => {
     const [ showForm, setShowForm ] = useState(false);
+    const [ toggleViews, setToggleViews ] = useState('main view');
     const [ selectedUser, setSelectedUser ] = useState(null);
   const stats = [
     {
@@ -17,7 +19,7 @@ const JobRoleUpload = () => {
 
   return (
     <>
-    {!showForm ?
+    {toggleViews === 'main view' &&
     <div className='ps-5 pe-10 mt-5'>
       <p className='neutral-black text-2xl font-bold'>Job Role Upload</p>
 
@@ -32,14 +34,16 @@ const JobRoleUpload = () => {
             </div>
           </div>
 
-          <div><button 
+          <div><button onClick={() => setToggleViews('bulk upload')}
       className="custom-bg-green text-white text-base font-semibold w-56 py-2 rounded-lg">
         Bulk Upload</button></div>
       </div>
 
       
-      <HiresTable setSelectedUser={setSelectedUser} setShowForm={setShowForm}/>
-    </div>: <JobRoleDetails showForm={showForm} setShowForm={setShowForm} selectedUser={selectedUser} />}
+      <HiresTable setSelectedUser={setSelectedUser} setToggleViews={setToggleViews}/>
+    </div>}
+    { toggleViews === 'single upload form' && <JobRoleDetails setToggleViews={setToggleViews} selectedUser={selectedUser} />}
+    { toggleViews === 'bulk upload' && <JobRoleBulkUpload setToggleViews={setToggleViews}/>}
     </>
   )
 }

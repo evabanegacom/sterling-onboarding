@@ -3,14 +3,15 @@ import back from '../../assets/back-icon.svg'
 import './job-role.css';
 import JobRoleForm from './job-role-form';
 
-const JobRoleDetails = ({ showForm, setShowForm, selectedUser }) => {
+const JobRoleDetails = ({ selectedUser, setToggleViews }) => {
   const [showJobForm, setShowJobForm] = React.useState(false)
 
-  if (!showForm) return null
   return (
+    <>
+    {showJobForm ? <JobRoleForm setToggleViews={setToggleViews}/> :
     <div>
       <div className='flex gap-2 items-center mt-3'>
-        <button onClick={() => setShowForm(false)}><img src={back} alt='goback' /></button>
+        <button onClick={() => setToggleViews('main view')}><img src={back} alt='goback' /></button>
         <span className='text-2xl font-semibold neutral-black'>Job Role/Upload</span>
       </div>
 
@@ -23,11 +24,11 @@ const JobRoleDetails = ({ showForm, setShowForm, selectedUser }) => {
               <div className='custom-green text-base'>Jonathan.donald@gmail.com</div>
             </div>
           </div>
-          <button className='w-80 custom-bg-green p-2 rounded-lg text-white text-sm font-bold'>Add details</button>
+          <button onClick={() => setShowJobForm(true)} className='w-80 custom-bg-green p-2 rounded-lg text-white text-sm font-bold'>Add details</button>
         </div>
       </div>
-      <JobRoleForm />
-    </div>
+    </div>}
+    </>
   )
 }
 
