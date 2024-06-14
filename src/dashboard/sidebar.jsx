@@ -6,6 +6,9 @@ import { FaUser } from "react-icons/fa";
 import { FaBookBookmark } from "react-icons/fa6";
 import { IoPeopleCircle } from "react-icons/io5";
 import { FaFileMedical } from "react-icons/fa";
+import { MdOutlineFolderCopy } from "react-icons/md";
+import { TiDocumentText, TiMessages } from "react-icons/ti";
+
 import logoutIcon from '../assets/logout-icon.svg';
 import sync from '../assets/sync-icon.svg';
 
@@ -17,11 +20,11 @@ const Sidebar = () => {
     { id: 1, name: 'Dashboard', link: '/admin/overview', icon: <PiSquaresFourFill size={20}/> },
     { id: 2, name: 'Profile New Hires', link: '/admin/profile-new-hires', icon: <FaFileMedical size={20}/> },
     { id: 3, name: 'New Onboarding Batch', link: '/admin/onboarding-batch', icon: <IoPeopleCircle size={20}/> },
-    { id: 4, name: 'Documents', link: '/admin/onboarding-document', icon: <FaBookBookmark size={20}/> },
+    { id: 4, name: 'Documents', link: '/admin/onboarding-document', icon: <TiDocumentText size={20}/> },
     { id: 5, name: 'Job/Role Upload', link: '/admin/job-role-upload', icon: <FaUser size={20}/> },
-    { id: 6, name: 'Events and activities', link: '/admin/events-activities', icon: <FaUser size={20}/> },
-    { id: 7, name: 'Messaging live chats', link: '/admin/hmo-table', icon: <FaUser size={20}/> },
-    { id: 8, name: 'Reports and surveys', link: '/admin/hmo-table', icon: <FaUser size={20}/> },
+    { id: 6, name: 'Events and activities', link: '/admin/events-activities', icon: <MdOutlineFolderCopy size={20}/> },
+    { id: 7, name: 'Messaging live chats', link: '/admin/messaging-livechat', icon: <TiMessages size={20}/> },
+    { id: 8, name: 'Reports and surveys', link: '/admin/reports-surveys', icon: <FaBookBookmark size={20}/> },
   ];
 
   return (

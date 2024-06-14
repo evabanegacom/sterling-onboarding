@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import TeamSchedule from './team-schedule';
 import ScheduleOnboarding from './schedule-onboarding';
 import InductionCeremony from './induction-ceremony';
-import OtherTctivities from './other-activities';
+import OtherActivities from './other-activities';
 import { RiCalendarEventFill } from "react-icons/ri";
 
 const EventsAndActivities = () => {
@@ -65,7 +65,7 @@ const EventsAndActivities = () => {
     {activeTab === 'onboarding' && <ScheduleOnboarding />}
     {activeTab === 'team' && <TeamSchedule />}
     {activeTab === 'induction' && <InductionCeremony />}
-    {activeTab === 'other' && <OtherTctivities />}
+    {activeTab === 'other' && <OtherActivities />}
        </>
   )
 }
