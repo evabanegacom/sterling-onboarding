@@ -10,6 +10,7 @@ import { Modal } from "antd";
 
 const OnboardedBatches = () => {
     const [showCheckboxes, setShowCheckboxes] = useState(false);
+    const [ showBatchSelection, setShowBatchSelection ] = useState(false);
     
     const batches = Array.from({ length: 20 }, (_, id) => ({
         id,
@@ -130,7 +131,7 @@ const OnboardedBatches = () => {
     return (
         <div className='onboarded-batches'>
             <div className='flex bg-white py-3 items-center px-3'>
-                <div className='neutral-black text-xl font-bold'>Tech AcDEmy batch</div>
+                <div className='neutral-black text-xl font-bold'>Tech Academy batch</div>
                 <button className='ml-auto' onClick={toggleCheckboxes}><img src={moveStaff} alt='move-staff' /></button>
                 <div className='relative'>
                     <CiSearch size={30} className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400' />
@@ -148,8 +149,9 @@ const OnboardedBatches = () => {
                 {selectedEmployees?.length} staff selected
                 </div>
                 <button onClick={cancelSelection} className='ml-auto mr-10 text-red-500 font-bold'>Cancel</button>
-                <button className='custom-bg-green text-white flex items-center font-bold gap-2 w-40 rounded-lg justify-center p-2'><img src={moveStaffToBatch} alt='move staff' />Move staff</button>
+                <button onClick={() => setShowBatchSelection(true)} className='custom-bg-green text-white flex items-center font-bold gap-2 w-40 rounded-lg justify-center p-2'><img src={moveStaffToBatch} alt='move staff' />Move staff</button>
             </div> : null}
+            
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-green-50 mt-5'>
                 {employees.map((employee) => (
                     <div key={employee.id} className='relative flex items-center flex-col gap-3 py-8 text-center shadow-md bg-white rounded-lg'>
@@ -170,18 +172,12 @@ const OnboardedBatches = () => {
                     </div>
                 ))}
             </div>
+            {showBatchSelection ?
             <form className='stats bg-white gap-2 mt-5 upload-form  py-8 rounded-xl px-3 flex flex-col items-center border w-2/4 mx-auto'>
                     <h3 className='dark-color font-bold text-2xl'>Select Destination Batch</h3>
                    
                     <div className='flex flex-col w-full'>
                         <label>Employees</label>
-                        {/* <Select
-                            isMulti
-                            options={batchOptions}
-                            value={selectedBatches}
-                            onChange={handleBatchChange}
-                            components={{ MultiValue: CustomMultiValue, SingleValue: CustomSingleValue, Control: CustomControl }}
-                        /> */}
                          <Select
                         components={{
                             MultiValue: CustomMultiValue,
@@ -208,7 +204,8 @@ const OnboardedBatches = () => {
                     />
                     </div>
                     <button type='submit' className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
-                </form>
+            </form> : null}
+
         </div>
     );
 };

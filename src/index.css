@@ -38,6 +38,10 @@
   color: #848484;
 }
 
+.stats-color {
+  color: #1E1B39;
+}
+
 .modal-overlay {
   width: 100%;
   max-height: 100vh;
@@ -76,4 +80,8 @@
   align-self: flex-end;
   background: transparent;
   border: none;
+}
+
+.text-blue {
+  color: #A4DBE8;
 }
