@@ -73,13 +73,50 @@ const ReportsSurveys = () => {
         },
       ]
 
-      const feedback = {
-        awesome: 20,
-        ok: 20,
-        poor: 20,
-        veryPoor: 20,
-        veryAwesome: 20
-      }
+      const feedback = [
+        {
+          id: 1,
+          title: 'It was awesome',
+          number: 410,
+          emoji: '👍'
+        },
+
+        {
+          id: 2,
+          title: 'It was awesome',
+          number: 410,
+          emoji: '👍'
+        },
+
+        {
+          id: 3,
+          title: 'It was awesome',
+          number: 410,
+          emoji: '👍'
+        },
+
+        {
+          id: 4,
+          title: 'It was awesome',
+          number: 410,
+          emoji: '👍'
+        },
+
+        {
+          id: 5,
+          title: 'It was awesome',
+          number: 410,
+          emoji: '👍'
+        },
+      ]
+
+const segments = [
+  { value: 10, color: '#4B9560' },
+  { value: 30, color: '#F6BE00' },
+  { value: 20, color: '#DB353A' },
+  { value: 20, color: '#009CBD' },
+  { value: 20, color: 'cyan' },
+];
 
   return (
     <>
@@ -147,9 +184,22 @@ const ReportsSurveys = () => {
                   <button className='bg-gray-100 text-sm p-3 text-gray-500 rounded-lg'>View More</button>
                 </div>
               </div>
-              <BarChart percentage={feedback} beforeBg='#DBF1F6' statisticsBg='#009CBD' />
+              <div className='mt-10 flex justify-center'>
+              <BarChart segments={segments} beforeBg='#DBF1F6' statisticsBg='#009CBD' />
+              </div>
+              <div>
+                {feedback.map((feed) => (
+                 <div className='flex justify-between mt-5'>
+                 <span>{feed?.emoji} {feed?.title}</span>
+                 <span>{feed?.number}</span>
+               </div>
+                ))}
+                
+              </div>
            </div>
         </div>
+        
+        <div className='bg-white shadow-md mt-5 p-10'>Chart goes here</div>
     </div>
     </>
   )
