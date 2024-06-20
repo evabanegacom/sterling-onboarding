@@ -6,6 +6,7 @@ import jobRoleUpload from '../assets/job-role-upload.svg';
 import surveyReport from '../assets/survey-report.svg';
 import { useNavigate } from 'react-router-dom';
 import GrantAccess from './grant-access/grant-access';
+import OverViewChart from './overview-chart';
 
 const AdminOverview = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const AdminOverview = () => {
           </div>
         ))}
       </div>
-      <p>Chart goes here</p>
+      <OverViewChart />
     </div>:
     <GrantAccess showAccess={showAccess} setShowAccess={setShowAccess}/>}
     </>

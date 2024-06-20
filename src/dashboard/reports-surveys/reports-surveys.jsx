@@ -3,6 +3,7 @@ import statsIcon from '../../assets/stats-icon.svg';
 import newGrants from '../../assets/new-grant-access.svg';
 import CircularBar from './circular-bar';
 import BarChart from './bar-chart';
+import Chart from './chart';
 
 const ReportsSurveys = () => {
     const stats = [
@@ -199,7 +200,9 @@ const segments = [
            </div>
         </div>
         
-        <div className='bg-white shadow-md mt-5 p-10'>Chart goes here</div>
+        <div className='bg-white shadow-md mt-5 p-10'>
+          <Chart />
+        </div>
     </div>
     </>
   )
