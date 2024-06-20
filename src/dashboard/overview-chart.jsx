@@ -46,17 +46,12 @@ const OverViewChart = () => {
         <Tooltip />
         <Area 
           type="monotone" 
-          dataKey="uv" 
+          dataKey="pv" 
           stroke="#8884d8" 
           fillOpacity={1} 
           fill="url(#colorUv)" 
           connectNulls 
         />
-        {data.map((entry, index) => (
-          entry.uv === null ? 
-            <ReferenceDot key={index} x={entry.name} y={0} r={8} fill="green" /> 
-          : null
-        ))}
       </AreaChart>
     </ResponsiveContainer>
   );

@@ -54,7 +54,18 @@ const AdminOverview = () => {
           </div>
         ))}
       </div>
+      <p className='mt-5 neutral-black font-semibold text-xl'>Onboarding Batch</p>
+      <div className='rounded-lg shadow-md bg-white mt-5 py-5'>
+        <div className='flex justify-between items-center px-10 mb-5'>
+          <span className='text-lg neutral-black font-bold'>For April</span>
+          <select className='custom-select bg-gray-50 rounded-lg p-2 outline-none text-xs font-semibold'>
+            <option>May</option>
+            <option>October</option>
+          </select>
+        </div>
       <OverViewChart />
+
+      </div>
     </div>:
     <GrantAccess showAccess={showAccess} setShowAccess={setShowAccess}/>}
     </>
