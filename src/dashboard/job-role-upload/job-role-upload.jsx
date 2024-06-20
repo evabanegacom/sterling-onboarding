@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import statsIcon from '../../assets/stats-icon.svg';
-import HiresTable from '../hires-table';
 import JobRoleDetails from './job-role-details';
 import JobRoleBulkUpload from './job-role-bulk-upload';
+import JobRoleTable from './job-role-table';
 
 const JobRoleUpload = () => {
     const [ showForm, setShowForm ] = useState(false);
@@ -39,8 +39,7 @@ const JobRoleUpload = () => {
         Bulk Upload</button></div>
       </div>
 
-      
-      <HiresTable setSelectedUser={setSelectedUser} setToggleViews={setToggleViews}/>
+      <JobRoleTable setSelectedUser={setSelectedUser} setToggleViews={setToggleViews}/>
     </div>}
     { toggleViews === 'single upload form' && <JobRoleDetails setToggleViews={setToggleViews} selectedUser={selectedUser} />}
     { toggleViews === 'bulk upload' && <JobRoleBulkUpload setToggleViews={setToggleViews}/>}

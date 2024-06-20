@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 // import exportIcon from '../../assets/export-icon.svg'	;
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
-import emptyData from '../assets/empty-data.svg';
+import emptyData from '../../assets/empty-data.svg';
 // import TableActions from './table-actions';
 
 const HiresTable = ({ setShowForm, setSelectedUser, setToggleViews }) => {

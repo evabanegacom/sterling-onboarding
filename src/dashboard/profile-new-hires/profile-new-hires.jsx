@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import statsIcon from '../../assets/stats-icon.svg';
-import HiresTable from '../hires-table';
+import HiresTable from './hires-table';
 import NewHiresForm from './new-hires-form';
 
 const ProfileNewHires = () => {

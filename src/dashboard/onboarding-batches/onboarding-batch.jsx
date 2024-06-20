@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import statsIcon from '../../assets/stats-icon.svg';
-import HiresTable from '../hires-table';
 import OnboardingBatchForm from './onboarding-batch-form';
 import OnboardedBatches from './onboarded-batches';
 import OnboardingTable from './onboarding-table';
