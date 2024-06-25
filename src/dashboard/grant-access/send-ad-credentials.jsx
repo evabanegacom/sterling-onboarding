@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FiUploadCloud, FiX, FiSearch } from 'react-icons/fi';
 import Select, { components } from 'react-select';
-import back from '../../assets/back-icon.svg';
+import { Modal, Button } from 'antd';
+// import 'antd/dist/antd.css';
 
 const SendAdCredentials = ({ showForm, setShowForm }) => {
     const employees = Array.from({ length: 20 }, (_, id) => ({
@@ -84,60 +85,77 @@ const SendAdCredentials = ({ showForm, setShowForm }) => {
         console.log(userDetails);
     };
 
-    if (!showForm) {
-        return null;
-    }
-
     return (
-        <div className='w-full ps-3'>
-            <div className='flex gap-2 justify-center'>
-                <button className='p-3 rounded-lg text-sm font-bold' style={{ background: activeButton === 'singleUpload' ? '#4B9560' : '', color: activeButton === 'singleUpload' ? '#fff' : '#495057' }} onClick={() => setActiveButton('singleUpload')}>Single Upload</button>
-                <button className='p-3 rounded-lg text-sm font-bold' style={{ background: activeButton === 'bulkUpload' ? '#4B9560' : '', color: activeButton === 'bulkUpload' ? '#fff' : '#495057' }} onClick={() => setActiveButton('bulkUpload')}>Bulk Upload</button>
+        <Modal
+            open={showForm}
+            onCancel={() => setShowForm(false)}
+            footer={null}
+            width={700}
+            className='px-5 py-5 rounded-xl dark:bg-gray-900 dark:text-gray-100'
+        >
+            <div className='w-full ps-3'>
+                <div className='flex gap-2 justify-center'>
+                    <Button
+                        className='p-3 rounded-lg text-sm font-bold'
+                        style={{ background: activeButton === 'singleUpload' ? '#4B9560' : '', color: activeButton === 'singleUpload' ? '#fff' : '#495057' }}
+                        onClick={() => setActiveButton('singleUpload')}
+                    >
+                        Single Upload
+                    </Button>
+                    <Button
+                        className='p-3 rounded-lg text-sm font-bold'
+                        style={{ background: activeButton === 'bulkUpload' ? '#4B9560' : '', color: activeButton === 'bulkUpload' ? '#fff' : '#495057' }}
+                        onClick={() => setActiveButton('bulkUpload')}
+                    >
+                        Bulk Upload
+                    </Button>
+                </div>
+                {activeButton === 'singleUpload' ? (
+                    <form onSubmit={handleSubmit} className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-full'>
+                        <h3 className='dark-color font-bold text-2xl'>Single AD Credentials</h3>
+
+                        <div className='flex flex-col w-full'>
+                            <label>Employees</label>
+                            <Select
+                                isMulti
+                                options={employeeOptions}
+                                value={selectedEmployees}
+                                onChange={handleEmployeeChange}
+                                components={{ MultiValue: CustomMultiValue, SingleValue: CustomSingleValue, Control: CustomControl }}
+                            />
+                        </div>
+                        <button type='submit' className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
+                    </form>
+                ) : (
+                    <form className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-full'>
+                        <h3 className='dark-color font-bold text-2xl'>Bulk AD Request</h3>
+                        <div className='flex flex-col w-full'>
+                            <label>Batch Name</label>
+                            <input type='text' />
+                        </div>
+                        <div className='flex flex-col w-full'>
+                            <label>Branch</label>
+                            <input type='text' />
+                        </div>
+                        <p className='text-start w-full text-gray-800 text-sm'>Upload Excel document</p>
+
+                        <div className="flex flex-col items-center justify-center rounded-lg border-gray-400 h-28 w-full text-center cursor-pointer bg-gray-50">
+                            <input type="file" className="hidden" id="file-upload" />
+                            <label htmlFor="file-upload" className="flex flex-col items-center cursor-pointer">
+                                <FiUploadCloud className="text-gray-700 text-2xl mb-4" />
+
+                                <span className="text-red-500 text-sm font-bold">Click to upload</span>
+                            </label>
+                        </div>
+
+                        <div className='text-start w-full mt-2 text-sm font-semibold'><span className='text-gray-700'>Need an excel template?</span> <button className='custom-green'>Download Here</button></div>
+                        <button className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
+                    </form>
+                )}
             </div>
-            {activeButton === 'singleUpload' ?
-                <form onSubmit={handleSubmit} className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-2/5 mx-auto'>
-                    <h3 className='dark-color font-bold text-2xl'>Single AD Credentials</h3>
-                   
-                    <div className='flex flex-col w-full'>
-                        <label>Employees</label>
-                        <Select
-                            isMulti
-                            options={employeeOptions}
-                            value={selectedEmployees}
-                            onChange={handleEmployeeChange}
-                            components={{ MultiValue: CustomMultiValue, SingleValue: CustomSingleValue, Control: CustomControl }}
-                        />
-                    </div>
-                    <button type='submit' className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
-                </form>
-                :
-                <form className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-2/5 mx-auto'>
-                    <h3 className='dark-color font-bold text-2xl'>Bulk AD Request</h3>
-                    <div className='flex flex-col w-full'>
-                        <label>Batch Name</label>
-                        <input type='text' />
-                    </div>
-                    <div className='flex flex-col w-full'>
-                        <label>Branch</label>
-                        <input type='text' />
-                    </div>
-                    <p className='text-start w-full text-gray-800 text-sm'>Upload Excel document</p>
-
-                    <div className="flex flex-col items-center justify-center rounded-lg border-gray-400 h-28 w-full text-center cursor-pointer bg-gray-50">
-                        <input type="file" className="hidden" id="file-upload" />
-                        <label htmlFor="file-upload" className="flex flex-col items-center cursor-pointer">
-                            <FiUploadCloud className="text-gray-700 text-2xl mb-4" />
-
-                            <span className="text-red-500 text-sm font-bold">Click to upload</span>
-                        </label>
-                    </div>
-
-                    <div className='text-start w-full mt-2 text-sm font-semibold'><span className='text-gray-700'>Need an excel template?</span> <button className='custom-green'>Download Here</button></div>
-                    <button className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
-                </form>
-            }
-        </div>
+        </Modal>
     );
 };
 
 export default SendAdCredentials;
+

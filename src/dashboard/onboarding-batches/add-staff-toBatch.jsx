@@ -3,6 +3,7 @@ import back from '../../assets/back-icon.svg';
 import Select, { components } from 'react-select';
 import { FiUploadCloud, FiX, FiSearch } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
+import { Modal, Button } from 'antd';
 
 const AddStaffToBatch = ({ showForm, setShowForm }) => {
     const handleChange = (e) => {
@@ -78,6 +79,13 @@ const AddStaffToBatch = ({ showForm, setShowForm }) => {
         return null
     }
     return (
+        <Modal
+        // title="Select Destination Batch"
+        open={showForm}
+        onCancel={() => setShowForm(false)}
+        footer={null}
+        bodyStyle={{ padding: '0 24px 24px 24px' }}
+        width={700}>
         <div className='w-full ps-3'>
             {/* <div className='flex gap-2 items-center mt-3'>
                 <button onClick={() => setShowForm(false)}><img src={back} alt='goback' /></button>
@@ -128,6 +136,7 @@ const AddStaffToBatch = ({ showForm, setShowForm }) => {
                 <button className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
             </form>
         </div>
+    </Modal>
     )
 }
 

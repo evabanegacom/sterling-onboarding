@@ -3,10 +3,9 @@ import moveStaff from '../../assets/move-staff.svg';
 import { CiSearch } from "react-icons/ci";
 import moveStaffToBatch from '../../assets/move-staff-to-batch.svg';
 import { FiUploadCloud, FiX, FiSearch } from 'react-icons/fi';
-
 import './onboarding-batches.css';
 import Select, { components } from 'react-select';
-import { Modal } from "antd";
+import { Modal, Button } from 'antd';
 
 const OnboardedBatches = () => {
     const [showCheckboxes, setShowCheckboxes] = useState(false);
@@ -129,6 +128,7 @@ const OnboardedBatches = () => {
     }
 
     return (
+        
         <div className='onboarded-batches'>
             <div className='flex bg-white py-3 items-center px-3'>
                 <div className='neutral-black text-xl font-bold'>Tech Academy batch</div>
@@ -172,8 +172,14 @@ const OnboardedBatches = () => {
                     </div>
                 ))}
             </div>
-            {showBatchSelection ?
-            <form className='stats bg-white gap-2 mt-5 upload-form  py-8 rounded-xl px-3 flex flex-col items-center border w-2/4 mx-auto'>
+            <Modal
+                // title="Select Destination Batch"
+                open={showBatchSelection}
+                onCancel={() => setShowBatchSelection(false)}
+                footer={null}
+                className='py-5 px-5 rounded-xl dark:bg-gray-900 dark:text-gray-100'
+                width={700}>
+            <form className='stats bg-white gap-2 mt-5 upload-form  py-8 rounded-xl px-3 flex flex-col items-center border w-full mx-auto'>
                     <h3 className='dark-color font-bold text-2xl'>Select Destination Batch</h3>
                    
                     <div className='flex flex-col w-full'>
@@ -204,8 +210,8 @@ const OnboardedBatches = () => {
                     />
                     </div>
                     <button type='submit' className='custom-bg-green py-2 mt-3 text-white font-bold w-60 rounded-lg'>Submit</button>
-            </form> : null}
-
+            </form>
+            </Modal>
         </div>
     );
 };
