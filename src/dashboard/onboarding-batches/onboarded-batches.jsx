@@ -7,7 +7,8 @@ import './onboarding-batches.css';
 import Select, { components } from 'react-select';
 import { Modal, Button } from 'antd';
 
-const OnboardedBatches = () => {
+const OnboardedBatches = ({ selectedBatch}) => {
+    console.log(selectedBatch)
     const [showCheckboxes, setShowCheckboxes] = useState(false);
     const [ showBatchSelection, setShowBatchSelection ] = useState(false);
     

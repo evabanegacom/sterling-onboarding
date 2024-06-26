@@ -10,7 +10,7 @@ const OnboardingTable = ({ setShowForm, setSelectedUser, showOnboardingBatch, se
 
   const [isOpen, setIsOpen] = useState(false);
    const tableHeader = ['S/N', 'Employee Name', 'Grade', 'HMO Plan', 'HMO Plan Type', 'Status', ""]
-
+   const [ selectedBatch, setSelectedBatch ] = useState(null);
    const tableData = [
       {
         sn: 1,
@@ -79,8 +79,8 @@ const OnboardingTable = ({ setShowForm, setSelectedUser, showOnboardingBatch, se
       }
     ]
     const toggleForm = (value) => {
-      setSelectedUser(value);
-      setShowForm(true);
+      setSelectedBatch(value);
+      setShowOnboardingBatch(true);
     }
   // const tableData = []
   return (
@@ -130,7 +130,7 @@ const OnboardingTable = ({ setShowForm, setSelectedUser, showOnboardingBatch, se
           </thead>
           <tbody className='font-medium text-sm'>
             {tableData.map((data, index) => (
-              <tr key={index} className='border-b border-gray-200 cursor-pointer' onClick={() => setShowOnboardingBatch(true)}>
+              <tr key={index} className='border-b border-gray-200 cursor-pointer' onClick={() => toggleForm(data)}>
                 <td className='px-4 py-5'>{data.sn}</td>
                 <td className='px-4 py-5'>{data.employeeName}</td>
                 <td className='px-4 py-5'>{data.grade}</td>
@@ -159,7 +159,7 @@ const OnboardingTable = ({ setShowForm, setSelectedUser, showOnboardingBatch, se
       : <div className='flex justify-center pb-20'><button ><img src={emptyData} alt='empty data' className='mt-5 h-96' /></button></div>}
 
     </div>
-    : <OnboardedBatches />}
+    : <OnboardedBatches selectedBatch={selectedBatch}/>}
     </>
   )
 }
