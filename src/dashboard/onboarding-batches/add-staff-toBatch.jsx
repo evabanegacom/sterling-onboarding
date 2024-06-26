@@ -32,23 +32,12 @@ const AddStaffToBatch = ({ showForm, setShowForm }) => {
 
     const CustomMultiValue = (props) => {
         return (
-            // <components.MultiValue {...props}>
-            //     <components.MultiValueLabel {...props}>
-            //         {props.data.firstName} {props.data.lastName}
-            //     </components.MultiValueLabel>
-            // </components.MultiValue>
             <components.MultiValue {...props}>
-            <div className="w-1/3 flex items-center justify-center p-1">
                 <components.MultiValueLabel {...props}>
                     {props.data.firstName} {props.data.lastName}
                 </components.MultiValueLabel>
-                <components.MultiValueRemove {...props}>
-                    <div className="bg-red-500 text-white rounded-full p-1 cursor-pointer">
-                        <IoMdClose size={12} />
-                    </div>
-                </components.MultiValueRemove>
-            </div>
-        </components.MultiValue>
+            </components.MultiValue>
+            
         );
     };
 
