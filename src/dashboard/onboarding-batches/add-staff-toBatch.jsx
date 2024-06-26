@@ -84,8 +84,8 @@ const AddStaffToBatch = ({ showForm, setShowForm }) => {
         open={showForm}
         onCancel={() => setShowForm(false)}
         footer={null}
-        bodyStyle={{ padding: '0 24px 24px 24px' }}
-        width={700}>
+        className='px-3'
+        width={600}>
         <div className='w-full ps-3'>
             {/* <div className='flex gap-2 items-center mt-3'>
                 <button onClick={() => setShowForm(false)}><img src={back} alt='goback' /></button>
@@ -93,7 +93,7 @@ const AddStaffToBatch = ({ showForm, setShowForm }) => {
             </div> */}
 
 
-            <form className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-1/2 mx-auto'>
+            <form className='stats bg-white gap-2 mt-5 upload-form px-5 py-8 rounded-xl flex flex-col items-center border w-full mx-auto'>
                 <h3 className='dark-color font-bold text-2xl'>Add staff to batch</h3>
                 <div className='flex flex-col w-full'>
                     <label>Batch Name</label>
